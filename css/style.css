@@ -120,11 +120,14 @@ h6{
 #search{
   display: flex;
   align-items: flex-end;
-
   padding:5px;
   border-radius: 3px;
   background-color: white;
   color:#b7bbbd;
+}
+#search i {
+  font-size: .8rem;
+
 }
 
 #search input{
@@ -311,7 +314,6 @@ h6{
 
 /* ******************** MODIFICA ASPETTO SCROLLBAR ********************* */
 
-
 ::-webkit-scrollbar {
   width: 5px;
   height: 5px;
@@ -319,50 +321,29 @@ h6{
 
 ::-webkit-scrollbar-thumb {
   background: #eaeaea;
-
   border: 2px none #eaeaea;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #eaeaea;
 }
-::-webkit-scrollbar-thumb:active {
-  /* background: #e1e1e1; */
-}
-::-webkit-scrollbar-track {
-  /* background: #666666; */
-  border: 0px none #ffffff;
-  border-radius: 10px;
-}
-::-webkit-scrollbar-track:hover {
-  /* background: #666666; */
-}
-/* ::-webkit-scrollbar-track:active {
-  background: #000000;
-} */
+
 ::-webkit-scrollbar-corner {
   background: transparent;
 }
 
-  /* ******************** FINE MODIFICA ASPETTO SCROLLBAR ********************* */
+/* ******************** FINE MODIFICA ASPETTO SCROLLBAR ********************* */
+
+
 
 /* *************  RESPONSIVE PART  ************* */
-
-/* @media all and (max-width:1350px){
-
-  #search input{
-    width: 50%;
-  }
-} */
 
 @media all and (max-width:1050px) {
 
   .user h3{
     display:none;
   }
-  #search{
-    width: 80%;
-  }
+
   #search input{
     width: 50%;
   }
