@@ -2,9 +2,11 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-    <title></title>
+     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>Whatsapp</title>
   </head>
   <body>
     <!-- **** Background ***** -->
@@ -12,7 +14,7 @@
     <div id="bottomBg"></div>
 
     <!-- ******* APP BLOCK ****** -->
-    <main id="container">
+    <main id="app">
       <!-- ***** LEFT COLUMNS ON THE SIDE ***** -->
       <aside id="left">
         <div class="top_bar">
@@ -28,6 +30,7 @@
           </div>
 
         </div>
+        <!-- *************** NOTIFICATION SECTION *************** -->
 
         <div id="notifications">
           <div id="bell">
@@ -35,26 +38,95 @@
           </div>
           <div class="">
             <h3>Ricevi notifiche di nuovi messaggi</h3>
-            <h4>Attiva notifiche desktop</h4>
+            <a href="#"><h4>Attiva notifiche desktop</h4></a>
           </div>
         </div>
-
+        <!-- *************** SEARCH SECTION *************** -->
         <div id="search_box">
 
           <div id="search">
             <i class="fas fa-search"></i>
-            <input type="text" name="" value="">
+            <input type="text" name="" value="" placeholder="Cerca..">
           </div>
 
+        </div>
+
+        <!-- *************** CONTACT SECTION *************** -->
+
+        <div id="contact_list">
+          <ul>
+            <li>
+              <img src="img/avatar_2.jpg" alt="">
+              <p>Michele</p> <br>
+               <span class="last_mex">ok...</span>
+               <span class="mex_time">10/10/2020 18:55:59</span>
+            </li>
+
+            <li>
+              <img src="img/avatar_6.jpg" alt="">
+              <p>Sara</p> <br>
+               <span class="last_mex">ok...</span>
+               <span class="mex_time">10/10/2020 18:55:59</span>
+            </li>
+
+            <li>
+              <img src="img/avatar_4.jpg" alt="">
+              <p>Andrea</p> <br>
+               <span class="last_mex">ok...</span>
+               <span class="mex_time">10/10/2020 18:55:59</span>
+            </li>
+
+            <li>
+              <img src="img/avatar_4.jpg" alt="">
+              <p>Andrea</p> <br>
+               <span class="last_mex">ok...</span>
+               <span class="mex_time">10/10/2020 18:55:59</span>
+            </li>
+
+            <li>
+              <img src="img/avatar_4.jpg" alt="">
+              <p>Andrea</p> <br>
+               <span class="last_mex">ok...</span>
+               <span class="mex_time">10/10/2020 18:55:59</span>
+            </li>
+
+            <li>
+              <img src="img/avatar_4.jpg" alt="">
+              <p>Andrea</p> <br>
+               <span class="last_mex">ok...</span>
+               <span class="mex_time">10/10/2020 18:55:59</span>
+            </li>
+
+            <li>
+              <img src="img/avatar_4.jpg" alt="">
+              <p>Andrea</p> <br>
+               <span class="last_mex">ok...</span>
+               <span class="mex_time">10/10/2020 18:55:59</span>
+            </li>
+
+            <li>
+              <img src="img/avatar_4.jpg" alt="">
+              <p>Andrea</p> <br>
+               <span class="last_mex">ok...</span>
+               <span class="mex_time">10/10/2020 18:55:59</span>
+            </li>
+
+
+            <li>
+              <img src="img/avatar_4.jpg" alt="">
+              <p>Andrea</p> <br>
+               <span class="last_mex">ok...</span>
+               <span class="mex_time">10/10/2020 18:55:59</span>
+            </li>
+
+
+
+
+          </ul>
+
 
         </div>
 
-        <div class="">
-
-        </div>
-        <div class="">
-
-        </div>
 
       </aside>
 
@@ -62,15 +134,13 @@
       <!-- ***** MAIN APP SECTION ***** -->
       <section id="right">
         <!-- ***** TOP BAR SECTION ***** -->
-        <div class="top_bar">
+        <header class="top_bar">
 
-         <div class="refer_user">
+         <div class="friend">
 
-           <div class="">
-             <img src="img/avatar_1.jpg" alt="">
-           </div>
+           <img src="img/avatar_1.jpg" alt="">
 
-           <div class="refer_user_details">
+           <div class="friend_details">
              <h3>Andrea</h3></span>
              <h5>Ultimo accesso</h5>
            </div>
@@ -83,49 +153,63 @@
            <i class="fas fa-ellipsis-v"></i>
          </div>
 
-        </div>
-
-        <div id="chats">
-
-        </div>
+        </header>
 
 
+        <!-- ************* CHAT MESSAGES ********* -->
+        <section id="chats">
 
-        <!-- ***** BOTTOM BAR SECTION ***** -->
+          <div class="mex_received">
+            <p>Andimao a fare un giro?
+              <span class="chat_time">10/10/2020 20:10:55</span>
+            </p>
+          </div>
+
+          <div class="mex_sent">
+            <p>Ma chi,  io e te? Stai scherzando spero!
+              <span class="chat_time">10/10/2020 20:10:55</span>
+            </p>
+          </div>
+
+          <div class="mex_received">
+            <p>Andimao a fare un giro?
+              <span class="chat_time">10/10/2020 20:10:55</span>
+            </p>
+          </div>
+
+          <div class="mex_sent">
+            <p>Ma chi,  io e te? Stai scherzando spero!
+              <span class="chat_time">10/10/2020 20:10:55</span>
+            </p>
+          </div>
+
+          <div class="mex_sent">
+            <p>Ma chi,  io e te? Stai scherzando spero!Ma chi,  io e te? Stai scherzando spero!Ma chi,  io e te? Stai scherzando spero!Ma chi,  io e te? Stai scherzando spero!Ma chi,  io e te? Stai scherzando spero!Ma chi,  io e te? Stai scherzando spero!Ma chi,  io e te? Stai scherzando spero!Ma chi,  io e te? Stai scherzando spero!Ma chi,  io e te? Stai scherzando spero!
+              <span class="chat_time">10/10/2020 20:10:55</span>
+            </p>
+          </div>
+
+          <div class="mex_received">
+            <p>Ma chi,  io e te? Stai scherzando spero!Ma chi,  io e te? Stai scherzando spero!Ma chi,  io e te? Stai scherzando spero!Ma chi,  io e te? Stai scherzando spero!Ma chi,  io e te? Stai scherzando spero!Ma chi,  io e te? Stai scherzando spero!Ma chi,  io e te? Stai scherzando spero!Ma chi,  io e te? Stai scherzando spero!Ma chi,  io e te? Stai scherzando spero!
+              <span class="chat_time">10/10/2020 20:10:55</span>
+            </p>
+          </div>
+
+
+          </section>
+
+        <!-- ***** BOTTOM INPUT BAR SECTION ***** -->
         <div id="bottom_bar">
-
-          <div class="">
             <i class="far fa-smile"></i>
-          </div>
-          <div id="chat_input">
             <input type="text" name="" value="">
-          </div>
-          <div class="">
             <i class="fas fa-microphone"></i>
-          </div>
-
-
-
-
-
-
-
-
         </div>
+
 
       </section>
 
 
-
-
-
     </main>
-
-
-
-
-
-
 
 
     <script type="text/javascript"  src="js/script.js" charset="utf-8">
