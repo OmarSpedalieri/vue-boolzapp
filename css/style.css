@@ -48,7 +48,7 @@ h6{
   font-size: .3rem;
 }
 
-#app{
+#bolzapp{
   display: flex;
   width: 75%;
   height: 90%;
@@ -241,9 +241,12 @@ h6{
 }
 
 #chats{
+  
   overflow: scroll;
   padding: 50px;
   background-image: url("../img/mine.jpg");
+  background-repeat: repeat;
+
 }
 
 

@@ -14,13 +14,13 @@
     <div id="bottomBg"></div>
 
     <!-- ******* APP BLOCK ****** -->
-    <main id="app">
+    <main id="bolzapp">
       <!-- ***** LEFT COLUMNS ON THE SIDE ***** -->
       <aside id="left">
         <div class="top_bar">
           <div class="user">
-            <img src="img/avatar_io.jpg" alt="">
-            <span><h3>Nome Utente</h3></span>
+            <img :src="user.avatar" alt="">
+            <span><h3>{{user.name}} {{user.surname}}</h3></span>
           </div>
 
           <div class="icons">
@@ -34,7 +34,7 @@
 
         <div id="notifications">
           <div id="bell">
-            <i class="far fa-bell-slash"></i>
+            <i class="fas fa-bell-slash"></i>
           </div>
           <div class="">
             <h3>Ricevi notifiche di nuovi messaggi</h3>
@@ -56,70 +56,12 @@
 
         <div id="contact_list">
           <ul>
-            <li>
-              <img src="img/avatar_2.jpg" alt="">
-              <p>Michele</p> <br>
-               <span class="last_mex">ok...</span>
-               <span class="mex_time">10/10/2020 18:55:59</span>
+            <li  v-for = "(contact,index) in contacts" @click="chatindex = index">
+              <img :src = "contact.avatar" alt="">
+              <p>{{ contact.name }}</p> <br>
+               <span  class="last_mex">ok...</span>
+               <span class="mex_time">{{contact.last_access}}</span>
             </li>
-
-            <li>
-              <img src="img/avatar_6.jpg" alt="">
-              <p>Sara</p> <br>
-               <span class="last_mex">ok...</span>
-               <span class="mex_time">10/10/2020 18:55:59</span>
-            </li>
-
-            <li>
-              <img src="img/avatar_4.jpg" alt="">
-              <p>Andrea</p> <br>
-               <span class="last_mex">ok...</span>
-               <span class="mex_time">10/10/2020 18:55:59</span>
-            </li>
-
-            <li>
-              <img src="img/avatar_4.jpg" alt="">
-              <p>Andrea</p> <br>
-               <span class="last_mex">ok...</span>
-               <span class="mex_time">10/10/2020 18:55:59</span>
-            </li>
-
-            <li>
-              <img src="img/avatar_4.jpg" alt="">
-              <p>Andrea</p> <br>
-               <span class="last_mex">ok...</span>
-               <span class="mex_time">10/10/2020 18:55:59</span>
-            </li>
-
-            <li>
-              <img src="img/avatar_4.jpg" alt="">
-              <p>Andrea</p> <br>
-               <span class="last_mex">ok...</span>
-               <span class="mex_time">10/10/2020 18:55:59</span>
-            </li>
-
-            <li>
-              <img src="img/avatar_4.jpg" alt="">
-              <p>Andrea</p> <br>
-               <span class="last_mex">ok...</span>
-               <span class="mex_time">10/10/2020 18:55:59</span>
-            </li>
-
-            <li>
-              <img src="img/avatar_4.jpg" alt="">
-              <p>Andrea</p> <br>
-               <span class="last_mex">ok...</span>
-               <span class="mex_time">10/10/2020 18:55:59</span>
-            </li>
-
-
-            <li>
-              <img src="img/avatar_4.jpg" alt="">
-              <p>Andrea</p> <br>
-               <span class="last_mex">ok...</span>
-               <span class="mex_time">10/10/2020 18:55:59</span>
-            </li>
-
 
 
 
@@ -160,25 +102,39 @@
         <!-- ************* CHAT MESSAGES ********* -->
         <section id="chats">
 
-          <div class="mex_received">
+          <!-- <div class="mex_received">
             <p>Andimao a fare un giro?
               <span class="chat_time">10/10/2020 20:10:55</span>
             </p>
-          </div>
-
-          <div class="mex_sent">
-            <p>Ma chi,  io e te? Stai scherzando spero!
+          </div> -->
+<!-- controllo ogni elemento in mex e se index è 0 va a sent, altrimenti a received -->
+          <div
+            <!-- v-for="(element, index) in mex "
+            v-if="(contact_index = 0)? :class='mex_sent': :class='mex_received'" -->
+            >
+            <p>{{element}}
               <span class="chat_time">10/10/2020 20:10:55</span>
             </p>
           </div>
-
-          <div class="mex_received">
+<!-- console.log(myvar.stick[0].leaf.name); -->
+          <!-- <div class="mex_received">
             <p>Andimao a fare un giro?
               <span class="chat_time">10/10/2020 20:10:55</span>
             </p>
-          </div>
+          </div> -->
 
-          <div class="mex_sent">
+
+          <!-- <div
+              class="list_element"
+              v-for="(element, index) in list "
+              :class="getClass(index)"
+            >
+              <span >{{index+1}}.  {{list[index]}}</span>
+          </div> -->
+
+
+
+          <!-- <div class="mex_sent">
             <p>Ma chi,  io e te? Stai scherzando spero!
               <span class="chat_time">10/10/2020 20:10:55</span>
             </p>
@@ -194,7 +150,7 @@
             <p>Ma chi,  io e te? Stai scherzando spero!Ma chi,  io e te? Stai scherzando spero!Ma chi,  io e te? Stai scherzando spero!Ma chi,  io e te? Stai scherzando spero!Ma chi,  io e te? Stai scherzando spero!Ma chi,  io e te? Stai scherzando spero!Ma chi,  io e te? Stai scherzando spero!Ma chi,  io e te? Stai scherzando spero!Ma chi,  io e te? Stai scherzando spero!
               <span class="chat_time">10/10/2020 20:10:55</span>
             </p>
-          </div>
+          </div> -->
 
 
           </section>
