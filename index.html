@@ -107,13 +107,12 @@
               <span class="chat_time">10/10/2020 20:10:55</span>
             </p>
           </div> -->
-<!-- controllo ogni elemento in mex e se index è 0 va a sent, altrimenti a received -->
+<!-- controllo ogni elemento  dentro contact nella posizione indext e punto a chat( sono nel secondo livello dentro l array chat) -->
           <div
-            <!-- v-for="(element, index) in mex "
-            v-if="(contact_index = 0)? :class='mex_sent': :class='mex_received'" -->
-            >
-            <p>{{element}}
-              <span class="chat_time">10/10/2020 20:10:55</span>
+          v-for="(element, index) in contacts[chat_index].chat"
+          :class = "(element.state === 'sent' )? 'mex_sent' : 'mex_received' " >
+            <p>{{element.mex}}
+              <span class="chat_time">{{element.date}}</span>
             </p>
           </div>
 <!-- console.log(myvar.stick[0].leaf.name); -->
@@ -123,14 +122,6 @@
             </p>
           </div> -->
 
-
-          <!-- <div
-              class="list_element"
-              v-for="(element, index) in list "
-              :class="getClass(index)"
-            >
-              <span >{{index+1}}.  {{list[index]}}</span>
-          </div> -->
 
 
 

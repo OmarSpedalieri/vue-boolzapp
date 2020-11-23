@@ -53,19 +53,11 @@ var app = new Vue({
   },
   methods:{
 
-    select_chat: function(index){
-      alert("ciao");
-
-        // this.active_chat = this.contacts[index];
-        // // setto su false attivo per tutti i contatti
-        // this.contacts.forEach((contact, i) => {
-        //   contacts.active_chat=false;
-        // });
-        // // setto su true attivo per il contatto corrente
-        // this.active_chat = true;
-      }
-
-
+   //  filteredContact() {
+   //   return this.contacts.filter(post => {
+   //     return post.title.toLowerCase().includes(this.search.toLowerCase())
+   //   })
+   // }
 
   }
 
