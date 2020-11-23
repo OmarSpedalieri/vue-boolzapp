@@ -27,7 +27,7 @@ var app = new Vue({
       {
         avatar:'img/avatar_2.jpg',
         name: 'Sara',
-        last_access: '23/11/2020 17:55',
+        last_access: '23/11/2020 17:32',
         chat:
           [
             {mex:"hei",state:"sent",date: "19/11/20 16:48"},

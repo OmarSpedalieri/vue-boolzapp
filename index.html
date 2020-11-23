@@ -56,7 +56,7 @@
 
         <div id="contact_list">
           <ul>
-            <li  v-for = "(contact,index) in contacts" @click="chatindex = index">
+            <li  v-for = "(contact,index) in contacts" @click="chat_index = index">
               <img :src = "contact.avatar" alt="">
               <p>{{ contact.name }}</p> <br>
                <span  class="last_mex">ok...</span>
@@ -81,11 +81,11 @@
 
          <div class="friend">
 
-           <img src="img/avatar_1.jpg" alt="">
+           <img :src="contacts[chat_index].avatar" alt="">
 
            <div class="friend_details">
-             <h3>Andrea</h3></span>
-             <h5>Ultimo accesso</h5>
+             <h3>{{contacts[chat_index].name}}</h3></span>
+             <h5>{{contacts[chat_index].last_access}}</h5>
            </div>
 
          </div>
