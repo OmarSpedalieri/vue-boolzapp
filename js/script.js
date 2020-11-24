@@ -16,7 +16,7 @@ var app = new Vue({
       {
         avatar:'img/avatar_1.jpg',
         name: 'Michele',
-        last_access: '23/11/2020 17:55',
+        last_access: getDate(),
         chat:
           [
             {mex:"ciao test prova",state:"sent",date: "19/11/20 16:48"},
@@ -55,12 +55,21 @@ var app = new Vue({
 
     user_newMex:function(){
       // prendo cosa c'è in new mex e lo pusho
-      alert("ciao");
-        // user[i]
+      // alert("ciao");
 
-        // this.contacts[chat_index].chat.push(this.new_mex);
+      this.contacts.chat.push(this.new_mex);
+      this.new_mex = "";
 
-      }
+    },
+
+    get_Date:function(){
+
+      const today = new Date();
+      const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+      const time = today.getHours() + ":" + today.getMinutes();
+      const dateTime = date +' '+ time;
+      this.last_access = dateTime;;
+    }
 
     },
 
@@ -68,7 +77,7 @@ var app = new Vue({
    //   return this.contacts.filter(post => {
    //     return post.title.toLowerCase().includes(this.search.toLowerCase())
    //   })
-   
+
 
 
 
