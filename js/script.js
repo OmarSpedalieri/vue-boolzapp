@@ -56,9 +56,9 @@ var app = new Vue({
     user_newMex:function(){
       // prendo cosa c'è in new mex e lo pusho
       // alert("ciao");
-
+      this.contacts[this.chat_index].chat.state ="sent";
       this.contacts[this.chat_index].chat.push(this.new_mex);
-      // this.contacts[this.chat_index].chat.state ='sent';
+
 
       // this.date = lastAccess();
       this.new_mex = "";
