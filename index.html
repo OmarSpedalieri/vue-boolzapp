@@ -47,7 +47,7 @@
 
           <div id="search">
             <i class="fas fa-search"></i>
-            <input type="text" name="" value="">
+            <input type="text" name="" value="" v-model="search_text" @keyup="filteredList()" placeholder="Search">
           </div>
 
         </div>
@@ -56,13 +56,13 @@
 
         <div id="contact_list">
           <ul>
-            <li  v-for = "(contact,index) in contacts" @click="chat_index = index"
+            <li  v-for = "(element,index) in contacts" v-show="element.show" @click="chat_index = index"
             :class = "(chat_index === index )? 'grey_bg' : '' "
             >
-              <img :src = "contact.avatar" alt="">
-              <p>{{ contact.name }}</p> <br>
-               <span  class="last_mex">ok...</span>
-               <span class="mex_time">{{contact.last_access}}</span>
+              <img :src = "element.avatar" alt="">
+              <p>{{ element.name }}</p> <br>
+               <span  class="last_mex" >{{sub_mex(index)}}</span>
+               <span class="mex_time">{{element.last_access}}</span>
             </li>
 
 
@@ -88,7 +88,7 @@
            <div class="friend_details">
              <h3>{{contacts[chat_index].name}}</h3>
              <h5>{{contacts[chat_index].last_access}}</h5>
-    
+
            </div>
 
          </div>

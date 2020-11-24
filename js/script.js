@@ -5,10 +5,13 @@ var app = new Vue({
   data:{
     chat_index:0,
     new_mex:'',
+    search_text:'',
+
 
     user:{
       avatar:'img/avatar_io.jpg',
       name: 'Omar',
+      show:true,
       last_access:  '23/11/2020 17:55',
       },
 
@@ -16,7 +19,8 @@ var app = new Vue({
       {
         avatar:'img/avatar_1.jpg',
         name: 'Michele',
-        last_access: '',
+        show:true,
+        last_access:  '23/11/2020 17:55',
         chat:
           [
             {mex:"ciao test prova",state:"sent",date: "19/11/20 16:48"},
@@ -27,6 +31,7 @@ var app = new Vue({
       {
         avatar:'img/avatar_2.jpg',
         name: 'Sara',
+        show:true,
         last_access: '23/11/2020 17:32',
         chat:
           [
@@ -39,10 +44,10 @@ var app = new Vue({
       {
         avatar:'img/avatar_3.jpg',
         name: 'Fabio',
+        show:true,
         last_access: '23/11/2020 17:55',
         chat:
           [
-
             {mex:"andiamo al cinema",state:"sent",date: "19/11/20 16:48"},
             {mex:"perchè?",state:"received",date: "19/11/20 16:48"},
             {mex:"io non ti parlo",state:"received",date: "19/11/20 16:48"},
@@ -53,6 +58,7 @@ var app = new Vue({
   },
 
   methods:{
+    // *********CHECK THE INPUT AND PUSH A NEW OBJECT**********
 
     user_newMex(){
 
@@ -67,29 +73,51 @@ var app = new Vue({
 
         this.new_mex = "";
         this.reply();
-        this.updateScroll();
       };
     },
 
+    // *********AUTOMATIC ANSWER FROM PC**********
     reply(){
       setTimeout(() => {
         this.contacts[this.chat_index].chat.push({mex: "ok, come vuoi",state:"received",date:this.lastAccess()})
+        this.updateScroll();
       }, 1000)
-    },
 
+    },
+    // *********SEARCH IN CONTACTS**********
+
+    filteredList() {
+      this.contacts.forEach(element => {
+      if (element.name.toLowerCase().includes(this.search_text.toLowerCase())) {
+        element.show = true;
+      }else{
+        element.show = false;
+      };
+    });
+    },
+      // *********GET TIME AND DATE FUNCTION**********
     lastAccess(){
-      const today = new Date();
-      const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-      const time = today.getHours() + ":" + today.getMinutes();
-      const dateTime = date +' '+ time;
+      var today = new Date();
+      var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+      var time = today.getHours() + ":" + today.getMinutes();
+      var dateTime = date +' '+ time;
       return dateTime;
     },
 
+    // *********MANTEIN THE SCROLL DOWN TO THE LAST MESSAGE**********
     updateScroll(){
-
     var container = document.querySelector("#chats");
     container.scrollTop = container.scrollHeight
-}
+    },
+
+    // *********GETTING LAST MEX AND PUT INTO SUBMEX CONTACT LIST**********
+    sub_mex(i){
+      let index = (this.contacts[i].chat.length) - 1;
+      let text = this.contacts[i].chat[index].mex;
+      let submex = text.substring(0,15) + ' ...';
+      return submex;
+    }
+
 
 
   }
