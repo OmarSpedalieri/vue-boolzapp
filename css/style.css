@@ -14,7 +14,7 @@ div, main, aside, section, li{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Lato';
+  font-family: 'Helvetica';
   font-size: 25px;
 }
 img {
@@ -91,7 +91,7 @@ h6{
 
 #bell {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   width: 60px;
   height: 60px;
@@ -103,7 +103,7 @@ h6{
   /* text-decoration: none; */
   color:#697376;
 }
-#bell i{
+.notifications{
   margin: 0 10px;
 }
 
@@ -111,14 +111,13 @@ h6{
   display: flex;
   justify-content: center;
   align-items: center;
-
   min-height: 60px;
   background-color: #eaeaea;
 }
 
 #search{
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   padding:5px;
   border-radius: 3px;
   background-color: white;
@@ -126,11 +125,9 @@ h6{
 }
 #search i {
   font-size: .8rem;
-
 }
 
 #search input{
-
   border-style: none;
 }
 
@@ -178,7 +175,10 @@ h6{
   font-size: .7rem;
   color:#919191;
 }
+.grey_bg{
 
+background-color: #e9ebeb;
+}
 .mex_time{
   position:absolute;
   top:10px;
@@ -323,16 +323,16 @@ h6{
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #eaeaea;
-  border: 2px none #eaeaea;
-  border-radius: 3px;
+  background: #b1b1b1;
+  border: 3px none #b1b1b1;
+  border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #eaeaea;
 }
 
 ::-webkit-scrollbar-corner {
-  background: transparent;
+  background: #eaeaea;
 }
 
 /* ******************** FINE MODIFICA ASPETTO SCROLLBAR ********************* */
@@ -341,34 +341,34 @@ h6{
 
 /* *************  RESPONSIVE PART  ************* */
 
-@media all and (max-width:1050px) {
+@media all and (min-width:701px)and(max-width:1050px) {
 
   .user h3{
     display:none;
   }
 
-  #search input{
+  /* #search input{
     width: 50%;
-  }
+  } */
   .mex_time{
     display:none;
   }
 }
 
 
-@media all and (max-width:700px){
+@media all and (min-width:400px) and (max-width:700px){
   .user img{
     display:none;
   }
   .user h3{
     display:none;
   }
-  #search{
-    width: 80%;
+  /* #search{
+    width: 40%;
   }
   #search input{
     width: 50%;
-  }
+  } */
 
 
 }

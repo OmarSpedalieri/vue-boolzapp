@@ -36,7 +36,7 @@
           <div id="bell">
             <i class="fas fa-bell-slash"></i>
           </div>
-          <div class="">
+          <div class="notifications">
             <h3>Ricevi notifiche di nuovi messaggi</h3>
             <a href="#"><h4>Attiva notifiche desktop</h4></a>
           </div>
@@ -56,7 +56,9 @@
 
         <div id="contact_list">
           <ul>
-            <li  v-for = "(contact,index) in contacts" @click="chat_index = index">
+            <li  v-for = "(contact,index) in contacts" @click="chat_index = index"
+            :class = "(chat_index === index )? 'grey_bg' : '' "
+            >
               <img :src = "contact.avatar" alt="">
               <p>{{ contact.name }}</p> <br>
                <span  class="last_mex">ok...</span>
@@ -102,11 +104,7 @@
         <!-- ************* CHAT MESSAGES ********* -->
         <section id="chats">
 
-          <!-- <div class="mex_received">
-            <p>Andimao a fare un giro?
-              <span class="chat_time">10/10/2020 20:10:55</span>
-            </p>
-          </div> -->
+
 <!-- controllo ogni elemento  dentro contact nella posizione indext e punto a chat( sono nel secondo livello dentro l array chat) -->
           <div
           v-for="(element, index) in contacts[chat_index].chat"
@@ -115,33 +113,6 @@
               <span class="chat_time">{{element.date}}</span>
             </p>
           </div>
-<!-- console.log(myvar.stick[0].leaf.name); -->
-          <!-- <div class="mex_received">
-            <p>Andimao a fare un giro?
-              <span class="chat_time">10/10/2020 20:10:55</span>
-            </p>
-          </div> -->
-
-
-
-
-          <!-- <div class="mex_sent">
-            <p>Ma chi,  io e te? Stai scherzando spero!
-              <span class="chat_time">10/10/2020 20:10:55</span>
-            </p>
-          </div>
-
-          <div class="mex_sent">
-            <p>Ma chi,  io e te? Stai scherzando spero!Ma chi,  io e te? Stai scherzando spero!Ma chi,  io e te? Stai scherzando spero!Ma chi,  io e te? Stai scherzando spero!Ma chi,  io e te? Stai scherzando spero!Ma chi,  io e te? Stai scherzando spero!Ma chi,  io e te? Stai scherzando spero!Ma chi,  io e te? Stai scherzando spero!Ma chi,  io e te? Stai scherzando spero!
-              <span class="chat_time">10/10/2020 20:10:55</span>
-            </p>
-          </div>
-
-          <div class="mex_received">
-            <p>Ma chi,  io e te? Stai scherzando spero!Ma chi,  io e te? Stai scherzando spero!Ma chi,  io e te? Stai scherzando spero!Ma chi,  io e te? Stai scherzando spero!Ma chi,  io e te? Stai scherzando spero!Ma chi,  io e te? Stai scherzando spero!Ma chi,  io e te? Stai scherzando spero!Ma chi,  io e te? Stai scherzando spero!Ma chi,  io e te? Stai scherzando spero!
-              <span class="chat_time">10/10/2020 20:10:55</span>
-            </p>
-          </div> -->
 
 
           </section>
@@ -149,8 +120,8 @@
         <!-- ***** BOTTOM INPUT BAR SECTION ***** -->
         <div id="bottom_bar">
             <i class="far fa-smile"></i>
-            <input type="text" name="" value="">
-            <i class="fas fa-microphone"></i>
+            <input type="text" placeholder="Type here" v-model ='new_mex' @keyup.enter="user_newMex">
+            <i class="fas fa-microphone" @click="user_newMex"></i>
         </div>
 
 

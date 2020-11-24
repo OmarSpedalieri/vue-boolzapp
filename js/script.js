@@ -4,7 +4,7 @@ var app = new Vue({
 
   data:{
     chat_index:0,
-
+    new_mex:'',
 
     user:{
       avatar:'img/avatar_io.jpg',
@@ -53,12 +53,23 @@ var app = new Vue({
   },
   methods:{
 
+    user_newMex:function(){
+      // prendo cosa c'è in new mex e lo pusho
+      alert("ciao");
+        // user[i]
+
+        // this.contacts[chat_index].chat.push(this.new_mex);
+
+      }
+
+    },
+
    //  filteredContact() {
    //   return this.contacts.filter(post => {
    //     return post.title.toLowerCase().includes(this.search.toLowerCase())
    //   })
-   // }
+   
 
-  }
+
 
 });
