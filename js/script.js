@@ -51,37 +51,47 @@ var app = new Vue({
       }
     ]
   },
+
   methods:{
 
-    user_newMex:function(){
-      // prendo cosa c'è in new mex e lo pusho
-      // alert("ciao");
-      this.contacts[this.chat_index].chat.state ="sent";
-      this.contacts[this.chat_index].chat.push(this.new_mex);
+    user_newMex(){
 
+      if (this.new_mex != "") {
+        this.contacts[this.chat_index].chat.push(
+          {
+            mex: this.new_mex,
+            state:"sent",
+            date:this.lastAccess()
+          }
+        );
 
-      // this.date = lastAccess();
-      this.new_mex = "";
-
+        this.new_mex = "";
+        this.reply();
+        this.updateScroll();
+      };
     },
 
-    // lastAccess:function(){
-    //
-    //   const today = new Date();
-    //   const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-    //   const time = today.getHours() + ":" + today.getMinutes();
-    //   const dateTime = date +' '+ time;
-    //   this.last_access = dateTime;
-    // }
+    reply(){
+      setTimeout(() => {
+        this.contacts[this.chat_index].chat.push({mex: "ok, come vuoi",state:"received",date:this.lastAccess()})
+      }, 1000)
+    },
+
+    lastAccess(){
+      const today = new Date();
+      const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+      const time = today.getHours() + ":" + today.getMinutes();
+      const dateTime = date +' '+ time;
+      return dateTime;
+    },
+
+    updateScroll(){
+
+    var container = document.querySelector("#chats");
+    container.scrollTop = container.scrollHeight
+}
+
 
   }
-
-   //  filteredContact() {
-   //   return this.contacts.filter(post => {
-   //     return post.title.toLowerCase().includes(this.search.toLowerCase())
-   //   })
-
-
-
 
 });
