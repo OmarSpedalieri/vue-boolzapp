@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <title>Whatsapp</title>
   </head>
   <body>
@@ -20,7 +22,7 @@
         <div class="top_bar">
           <div class="user">
             <img :src="user.avatar" alt="">
-            <span><h3>{{user.name}} {{user.surname}}</h3></span>
+            <span><h3>{{user.name}}</h3></span><br>
           </div>
 
           <div class="icons">
@@ -38,7 +40,7 @@
           </div>
           <div class="notifications">
             <h3>Ricevi notifiche di nuovi messaggi</h3>
-            <a href="#"><h4>Attiva notifiche desktop</h4></a>
+            <a href="#"><h4>Attiva notifiche desktop ></h4></a>
           </div>
         </div>
 
@@ -47,7 +49,7 @@
 
           <div id="search">
             <i class="fas fa-search"></i>
-            <input type="text" name="" value="" v-model="search_text" @keyup="filteredList()" placeholder="Search">
+            <input type="text" name="" value="" v-model="search_text" @keyup="filteredList()" placeholder="Find or start a new chat">
           </div>
 
         </div>
@@ -64,17 +66,10 @@
                <span  class="last_mex" >{{sub_mex(index)}}</span>
                <span class="mex_time">{{element.last_access}}</span>
             </li>
-
-
-
           </ul>
-
-
         </div>
 
-
       </aside>
-
 
       <!-- ***** MAIN APP SECTION ***** -->
       <section id="right">
@@ -82,15 +77,11 @@
         <header class="top_bar">
 
          <div class="friend">
-
            <img :src="contacts[chat_index].avatar" alt="">
-
            <div class="friend_details">
              <h3>{{contacts[chat_index].name}}</h3>
-             <h5>{{contacts[chat_index].last_access}}</h5>
-
+             <h5>Last access: {{contacts[chat_index].last_access}}</h5>
            </div>
-
          </div>
 
          <div class="icons">
@@ -101,12 +92,9 @@
 
         </header>
 
-
         <!-- ************* CHAT MESSAGES ********* -->
         <section id="chats">
-
-
-<!-- controllo ogni elemento  dentro contact nella posizione indext e punto a chat( sono nel secondo livello dentro l array chat) -->
+            <!-- controllo ogni elemento  dentro contact nella posizione indext e punto a chat( sono nel secondo livello dentro l array chat) -->
           <div
           v-for="(element, index) in contacts[chat_index].chat"
           :class = "(element.state === 'sent' )? 'mex_sent' : 'mex_received' " >
@@ -115,8 +103,7 @@
             </p>
           </div>
 
-
-          </section>
+        </section>
 
         <!-- ***** BOTTOM INPUT BAR SECTION ***** -->
         <div id="bottom_bar">
@@ -125,9 +112,7 @@
             <i class="fas fa-microphone" @click="user_newMex"></i>
         </div>
 
-
       </section>
-
 
     </main>
 
